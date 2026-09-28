@@ -1,3 +1,7 @@
+"overrides": {
+  "esbuild": "^0.28.2"
+}
+
 {
   "name": "react-example",
   "private": true,
