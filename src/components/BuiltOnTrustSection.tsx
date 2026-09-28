@@ -53,9 +53,14 @@ export const BuiltOnTrustSection: React.FC = () => {
           <div className="lg:col-span-4">
             <div className="relative rounded-xl overflow-hidden shadow-lg border border-stone-300/80 bg-stone-900 group">
               <img
-                src="/src/assets/images/corporate_hq_architecture_1790544590535.jpg"
+                src="/images/corporate_hq_architecture.jpg"
                 alt="Avichas enterprise headquarters architecture representing organizational resilience and trust"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80';
+                }}
                 className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-102"
               />
               <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-transparent transition-colors" />

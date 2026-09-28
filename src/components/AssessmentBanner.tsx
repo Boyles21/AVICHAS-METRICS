@@ -13,9 +13,14 @@ export const AssessmentBanner: React.FC<AssessmentBannerProps> = ({
       {/* Mountain Climber Summit Background Image */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <img
-          src="/src/assets/images/mountain_climber_summit_1790544601804.jpg"
+          src="/images/mountain_climber_summit.jpg"
           alt="Leader standing at the summit of a mountain at dusk representing organizational heights"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.onerror = null;
+            target.src = 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80';
+          }}
           className="w-full h-full object-cover object-right sm:object-center"
         />
         {/* Deep Slate Left Scrim for absolute typographic contrast */}

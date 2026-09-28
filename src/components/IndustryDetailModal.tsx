@@ -23,6 +23,11 @@ export const IndustryDetailModal: React.FC<IndustryDetailModalProps> = ({
           <img
             src={industry.image}
             alt={industry.title}
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.onerror = null;
+              target.src = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80';
+            }}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0C1524] via-[#0C1524]/60 to-transparent" />

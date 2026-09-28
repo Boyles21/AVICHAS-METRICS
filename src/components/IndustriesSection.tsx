@@ -21,7 +21,7 @@ export const industriesData: IndustryItem[] = [
     id: 'financial-services',
     title: 'Financial Services',
     subtitle: 'Higher trust. Better decisions.',
-    image: '/src/assets/images/industry_financial_skyline_1790544543738.jpg',
+    image: '/images/industry_financial_skyline.jpg',
     description:
       'Empowering banks, asset managers, and fintech leaders to unify risk exposure, capital allocation, and regulatory compliance into real-time executive execution.',
     stats: [
@@ -34,7 +34,7 @@ export const industriesData: IndustryItem[] = [
     id: 'healthcare',
     title: 'Healthcare',
     subtitle: 'Better care. Greater efficiency.',
-    image: '/src/assets/images/industry_healthcare_team_1790544554940.jpg',
+    image: '/images/industry_healthcare_team.jpg',
     description:
       'Bridging clinical outcomes with hospital operational capacity, staffing forecasts, and compliance across multi-facility health systems.',
     stats: [
@@ -47,7 +47,7 @@ export const industriesData: IndustryItem[] = [
     id: 'manufacturing',
     title: 'Manufacturing',
     subtitle: 'Smarter operations. Stronger output.',
-    image: '/src/assets/images/industry_manufacturing_floor_1790544566174.jpg',
+    image: '/images/industry_manufacturing_floor.jpg',
     description:
       'Synchronizing global supply chain tiers, factory floor IoT metrics, and continuous throughput goals with strategic EBITDA targets.',
     stats: [
@@ -60,7 +60,7 @@ export const industriesData: IndustryItem[] = [
     id: 'professional-services',
     title: 'Professional Services',
     subtitle: 'Better insights. Greater impact.',
-    image: '/src/assets/images/industry_professional_services_1790544576911.jpg',
+    image: '/images/industry_professional_services.jpg',
     description:
       'Providing consulting, legal, and engineering practices with live partner billability, client delivery health, and intellectual capital alignment.',
     stats: [
@@ -117,6 +117,17 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
                   src={item.image}
                   alt={item.title}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.onerror = null;
+                    const fallbacks: Record<string, string> = {
+                      'financial-services': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+                      'healthcare': 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
+                      'manufacturing': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                      'professional-services': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+                    };
+                    target.src = fallbacks[item.id] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';
+                  }}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1829] via-transparent to-transparent opacity-80" />

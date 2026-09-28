@@ -21,9 +21,14 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Background Image with Atmospheric Lighting Overlays */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <img
-          src="/src/assets/images/hero_mountain_sunset_1790544530051.jpg"
+          src="/images/hero_mountain_sunset.jpg"
           alt="Atmospheric mountain sunset backdrop representing organizational elevation and clarity"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.onerror = null;
+            target.src = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80';
+          }}
           className="w-full h-full object-cover object-center scale-105 transform motion-safe:animate-pulse [animation-duration:15s]"
         />
         {/* Deep Slate Left Scrim for absolute typographic contrast */}
