@@ -1,0 +1,6 @@
+{
+  "name": "Avichas Metrics",
+  "description": "Turn organizational intent into measurable execution. Avichas gives organizations a trusted foundation for understanding performance, aligning execution, and turning decisions into measurable outcomes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
